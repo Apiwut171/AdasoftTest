@@ -6,7 +6,7 @@ ENV ASPNETCORE_URLS=http://+:5188
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["Adasofttest/Adasofttest.csproj", "Adasofttest/"]
+COPY ["Apiwun17/Adasofttest.csproj", "Adasofttest/"]
 RUN dotnet restore "Adasofttest\Adasofttest.csproj"
 COPY . .
 WORKDIR "/src/Adasofttest"
