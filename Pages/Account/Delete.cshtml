@@ -1,0 +1,35 @@
+@page
+@using System.Data.SqlClient
+@using Npgsql;
+@{
+    try
+        {
+            string idString = Request.Query["id"];
+            int id;
+            if (!int.TryParse(idString, out id))
+            {
+                
+            }
+            
+                string connectionString = "Host=dpg-cikqcrtgkuvinfkokqg0-a.singapore-postgres.render.com;Port=5432;Database=adabase;Username=user;Password=UhjAqXh34VTVW4VkAuEVJSDiXs27XcjI;SSL Mode=Require;Trust Server Certificate=true;";
+
+                using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sql = "DELETE FROM account WHERE id=@id";
+
+                    using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            
+        }
+        catch (Exception ex)
+        {
+            
+        }
+        Response.Redirect("/Account/Index");
+}

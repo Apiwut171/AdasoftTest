@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using System.Data.SqlClient;
 namespace Adasofttest.Pages;
 
 public class IndexModel : PageModel
@@ -14,6 +14,8 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-
+        
     }
+
+    
 }

@@ -1,0 +1,41 @@
+@page
+@model Adasofttest.Pages.Account.IndexModel
+@{
+    ViewData["Title"] = "Register Page";
+}
+<br />
+<h2>List Account</h2>
+<a class="btn btn-primary btn-sm" href="/Account/Register">New Account</a>
+<br /><br />
+@* <form asp-controller="Movies" asp-action="/Account/Index">
+    <p>
+        Username: <input type="text" name="SearchString" />
+        <input lass="btn btn-primary btn-sm" type="submit" value="Filter" />
+    </p>
+</form> *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.accountList)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.username</td>
+                <td>@item.email</td>
+                <td>@item.city</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Account/Edit?id=@item.id">Edit</a>
+                    <a class="btn btn-primary btn-sm" href="/Account/Delete?id=@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
